@@ -27,8 +27,8 @@
                            {!! Form::label('is_active','Status : ') !!}
                            {!! Form::select('is_active',array(1 =>'Active',0=>'Non Active'),0,['class'=>'form-control']) !!}
                            <br>
-                           {!! Form::label('file','Upload File : ') !!}
-                           {!! Form::file('file',['class'=>'form-control' ]) !!}
+                           {!! Form::label('photo_id','Upload File : ') !!}
+                           {!! Form::file('photo_id',['class'=>'form-control' ]) !!}
 
 
                        </div>
