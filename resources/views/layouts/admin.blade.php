@@ -147,11 +147,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/posts">All Posts</a>
+                                <a href="{{route('admin.posts.index')}}">All Posts</a>
                             </li>
 
                             <li>
-                                <a href="/posts/create">Create Post</a>
+                                <a href="{{route('admin.posts.create')}}">Create Post</a>
                             </li>
 
                         </ul>
@@ -355,7 +355,9 @@
 </div>
 <!-- /#wrapper -->
 
-<!-- jQuery -->
+<!-- jQuery -->>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="{{asset('js/libs.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
 {{--<script src="{{asset('js/libs/bootstrap.js')}}"></script>--}}
@@ -363,9 +365,7 @@
 <script src="{{asset('js/libs/jquery.js')}}"></script>
 <script src="{{asset('js/libs/metisMenu.js')}}"></script>
 <script src="{{asset('js/libs/sb-admin-2.js')}}"></script>
-<script src="{{asset('js/libs/scripts.js')}}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{{asset('js/libs/scripts.js')}}"></script
 
 
 
