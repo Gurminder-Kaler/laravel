@@ -8,6 +8,7 @@
        <tr>
          <th scope="col">Id</th>
          <th scope="col">User Name</th>
+         <th scope="col">Photo</th>
          <th scope="col">Email</th>
          <th scope="col">Role</th>
          <th scope="col">Status</th>
@@ -21,7 +22,9 @@
 
        <tr>
          <td>{{$user->id}}</td>
-         <td>{{$user->name}}</td>
+         <td><a href="{{route('admin.users.edit',$user->id)}}">{{$user->name}}</a></td>
+         {{--<td><img height="50px" width="50px" src="{{$user->photo ? $user->photo->file : 'No Photo for the user added'}}" alt=" No photo for the user added"></td>--}}
+         <td><img height="50px" width="50px" src="{{$user->photo ? $user->photo->file :'http://placehold.it/400x400'}}" class="img img-responsive img-rounded" alt="NO photo to edit"></td>
          <td>{{$user->email}}</td>
          <td>{{$user->role['name']}}</td>
          {{--<td>{{$user->role->name}}</td>--}}
