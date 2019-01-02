@@ -10,14 +10,10 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
@@ -26,11 +22,6 @@ class AdminUsersController extends Controller
         return view('admin.users.index',compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
@@ -39,12 +30,6 @@ class AdminUsersController extends Controller
         return view('admin.users.create',compact('roles'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
     public function store(UsersRequest $request)
     {
         //
@@ -72,23 +57,11 @@ class AdminUsersController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
@@ -98,17 +71,10 @@ class AdminUsersController extends Controller
         return view('admin.users.edit', compact('user','roles'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return array
-     */
     public function update(UsersEditRequest $request, $id)
     {
 //        return $request->all();
-
+        Session::flash('updated_user','User has been updated');
         $user = User::findorFail($id);
 
         if(trim($request->password) =='')
@@ -131,7 +97,7 @@ class AdminUsersController extends Controller
 
 
             $user->update($input);
-
+        Session::flash('updated_user','User has been updated');
             return redirect('admin/users');
     }
 
@@ -139,10 +105,16 @@ class AdminUsersController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     public function destroy($id)
     {
         //
+        //return "Destroy";
+        $user =User::findorFail($id);
+    unlink(public_path().$user->photo->name);
+    $user->delete();
+           Session::flash('deleted_user','The user has been deleted');
+        return redirect('/admin/users');
     }
 }

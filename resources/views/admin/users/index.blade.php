@@ -1,6 +1,14 @@
 @extends('layouts.admin')
 @section('content')
 
+  @if(Session::has('deleted_user'))
+    <h3 style="padding: 5px" class="bg-danger">{{Session('deleted_user')}}</h3>
+  @endif
+
+  @if(Session::has('updated_user'))
+    <h3 style="padding: 5px" class="bg-info">{{Session('updated_user')}}</h3>
+    @endif
+
     <h1>Users</h1>
 
    <table class="table">
@@ -30,8 +38,9 @@
          {{--<td>{{$user->role->name}}</td>--}}
          {{--<td>bobo</td>--}}
          <td>{{$user->is_active == 1 ? 'Active': 'Not Active'}}</td>
-         <td>{{$user->created_at->diffForHumans()}}</td>
-         <td>{{$user->updated_at->diffForHumans()}}</td>
+         <td>{{$user->created_at}}</td>
+         <td>{{$user->updated_at}}</td>
+         {{--<td>{{$user->updated_at->diffForHumans()}}</td>--}}
        </tr>
 @endforeach
      @endif

@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-            <img src="{{$user->photo ? $user->photo->file :'http://placehold.it/400x400'}}" class="img img-responsive img-rounded" alt="NO photo to edit">
+            <img src="{{$user->photo ? $user->photo->file :'http://placehold.it/400x400'}}" class="img-responsive img-rounded" alt="NO photo to edit">
             </div>
             <div class="col-md-6">
                 <div class="form-group">
@@ -50,34 +50,50 @@
             </div>
             <div class="col-md-4">
 
-                {!! Form::submit('Done Editing',['class'=>'btn btn-block btn-primary' ]) !!}
+                {!! Form::submit('Done Editing',['class'=>'btn btn-block btn-success' ]) !!}
             </div>
             <div class="col-md-4">
             </div>
 
         </div>
         <br>
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-6">
-                {{--@if(count($errors)>0)--}}
-                @if(count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{$error}}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-            </div>
 
-            <div class="col-md-4"></div>
-        </div>
 
 
     </div>
 
     {!! Form::close() !!}
+    {!! Form::open(['method'=>'DELETE','action'=>['AdminUsersController@destroy',$user->id]]) !!}
+            {{ csrf_field() }}
+           <div class="container">
+               <div class="row">
+                   <div class="col-md-4"></div>
+                   <div class="col-md-4">
+                       <div class="form-group">
+                        {!! Form::submit('Delete User',['class'=>'btn btn-block btn-danger' ]) !!}
+                       </div>
+                   </div>
+                   <div class="col-md-4"></div>
+               </div>
+            </div>
+
+        {!! Form::close() !!}
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            {{--@if(count($errors)>0)--}}
+            @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
 
 @endsection
