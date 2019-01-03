@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\PostsCreateRequest;
 use App\Photo;
 use App\Post;
@@ -32,25 +33,22 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
-        return view('admin.posts.create');
+        $categories = Category::lists('name','id')->all();
+
+          return view('admin.posts.create',compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return string
-     */
+
     public function store(PostsCreateRequest $request)
     {
         //
         $input = $request->all();
         $user = Auth::user();
-        if($file= $request->file('photo_id')){
+        if($file= $request->file('photo_id')) {
            $name = time().$file->getClientOriginalName();
            $file->move('images',$name);
-           $photo= Photo::create(['file'=>$name]);
-           $input['photo_id']=$photo->id;
+           $photo = Photo::create(['file'=>$name]);
+           $input['photo_id'] = $photo->id;
 
         }
 

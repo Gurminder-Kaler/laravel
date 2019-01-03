@@ -12,15 +12,15 @@
     <title>Admin</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{‌{asset('css/libs/styles.css')}}">
-    <link rel="stylesheet" type="text/css" href="{‌{asset('css/libs/blog-post.css')}}">
-    {{--<link rel="stylesheet" type="text/css" href="{‌{asset('css/libs/bootstrap.css')}}">--}}
-    <link rel="stylesheet" type="text/css" href="{‌{asset('css/libs/font-awesome.css')}}">
-    <link rel="stylesheet" type="text/css" href="{‌{asset('css/libs/metisMenu.css')}}">
-    <link rel="stylesheet" type="text/css" href="{‌{asset('css/libs/sb-admin-2.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="{{asset('css/libs.css')}}" rel="stylesheet">
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{‌{asset('css/styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{‌{asset('css/blog-post.css')}}">
+    {{--<link rel="stylesheet" type="text/css" href="{‌{asset('css/libs/bootstrap.css')}}">--}}
+    <link rel="stylesheet" type="text/css" href="{‌{asset('css/font-awesome.css')}}">
+    <link rel="stylesheet" type="text/css" href="{‌{asset('css/metisMenu.css')}}">
+    <link rel="stylesheet" type="text/css" href="{‌{asset('css/sb-admin-2.css')}}">
+        <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

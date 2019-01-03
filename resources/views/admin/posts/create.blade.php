@@ -13,7 +13,7 @@
                        {!! Form::text('title', null,['class'=>'form-control']) !!}
                        <br>
                        {!! Form::label('category_id','Category') !!}
-                       {!! Form::select('category_id',array(1=>'PHP',2 =>'Laravel'), null,['class'=>'form-control']) !!}
+                       {!! Form::select('category_id',[''=>'Choose Categories']+$categories,null,['class'=>'form-control']) !!}
                        <br>
                        {!! Form::label('photo_id','Upload Photo') !!}
                        {!! Form::file('photo_id',null, ['class'=>'form-control']) !!}
@@ -23,10 +23,6 @@
 
 
                    </div>
-                   {{--<input placeholder="Enter title here" type="text" class="form-control" name="title">--}}
-                   {{--<input placeholder="Enter content here" type="text" class="form-control" name="content">--}}
-
-                   {{--<button type="submit"  name="submit" class="btn btn-success">Submit</button>--}}
                </div>
                <div class="col-md-2">
                </div>

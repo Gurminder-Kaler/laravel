@@ -35,11 +35,9 @@
          <td><img height="50px" width="50px" src="{{$user->photo ? $user->photo->file :'http://placehold.it/400x400'}}" class="img img-responsive img-rounded" alt="NO photo to edit"></td>
          <td>{{$user->email}}</td>
          <td>{{$user->role['name']}}</td>
-         {{--<td>{{$user->role->name}}</td>--}}
-         {{--<td>bobo</td>--}}
          <td>{{$user->is_active == 1 ? 'Active': 'Not Active'}}</td>
-         <td>{{$user->created_at}}</td>
-         <td>{{$user->updated_at}}</td>
+         <td>{{$user->created_at->diffForHumans()}}</td>
+         <td>{{$user->updated_at->diffForHumans()}}</td>
          {{--<td>{{$user->updated_at->diffForHumans()}}</td>--}}
        </tr>
 @endforeach
